@@ -16,20 +16,21 @@ With no ROM it shows a demo pattern so you can verify the video pipeline.
 
 ## Controls
 
-| Key | Button |
-|---|---|
-| W A S D | D-pad |
-| Z | A |
-| X | B |
-| Enter | Start |
-| Right Shift | Select |
-| Tab (hold) | Turbo (fast-forward) |
-| M | Menu (turbo speed setting) |
-| Esc | Quit |
+| Key         | Button                     |
+| ----------- | -------------------------- |
+| W A S D     | D-pad                      |
+| Z           | A                          |
+| X           | B                          |
+| Enter       | Start                      |
+| Right Shift | Select                     |
+| Tab (hold)  | Turbo (fast-forward)       |
+| M           | Menu (turbo speed setting) |
+| Esc         | Quit                       |
 
 ## Status
 
 Done:
+
 - SM83 CPU core (all unprefixed + CB-prefixed opcodes, flags, interrupts, EI delay, halt bug)
 - Memory map with OAM DMA; IF/IE unused bits read as 1 (DMG behavior)
 - PPU: mode timing, LY/STAT, background + window, sprites (8x8/8x16, flips,
@@ -47,6 +48,7 @@ Done:
 - Pixel-level PPU test (`make test`)
 
 CGB (Game Boy Color):
+
 - CGB mode auto-detected from header `0x143` (`0x80`/`0xC0`)
 - Banked VRAM (2 banks) / WRAM (8 banks) with SVBK, VBK
 - BG/window/sprite attributes: per-tile palette, VRAM bank, X/Y flip, priority
@@ -56,25 +58,27 @@ CGB (Game Boy Color):
 
 ### Blargg results (15/16)
 
-| Test | Result |
-|---|---|
-| cpu_instrs (01–11 + aggregate) | PASS |
-| instr_timing | PASS |
-| halt_bug | PASS |
-| mem_timing | FAIL (needs M-cycle-accurate memory) |
-| mem_timing2 | FAIL (same) |
+| Test                           | Result                               |
+| ------------------------------ | ------------------------------------ |
+| cpu_instrs (01–11 + aggregate) | PASS                                 |
+| instr_timing                   | PASS                                 |
+| halt_bug                       | PASS                                 |
+| mem_timing                     | FAIL (needs M-cycle-accurate memory) |
+| mem_timing2                    | FAIL (same)                          |
 
-mem_timing* require CPU memory accesses interleaved with T-cycles; the core
+mem_timing\* require CPU memory accesses interleaved with T-cycles; the core
 currently returns total cycles per instruction.
 
 Acid tests:
+
 - cgb-acid2: PASS (0 pixel diffs vs reference)
 - dmg-acid2: PASS (expected "HELLO WORLD" screen)
 
 TODO:
+
 - Serial link
-- M-cycle-accurate memory timing (mem_timing*)
-- Blargg apu_* test ROMs not yet run (suite not in roms/tests)
+- M-cycle-accurate memory timing (mem_timing\*)
+- Blargg apu\_\* test ROMs not yet run (suite not in roms/tests)
 
 Saves: battery carts write a `.sav` next to the ROM on quit and load it on boot.
 MBC3+RTC carts also write a `.rtc` sidecar.
@@ -85,7 +89,7 @@ MBC3+RTC carts also write a `.rtc` sidecar.
 include/   public headers
 src/       cpu.c mmu.c ppu.c timer.c joypad.c apu.c cart.c gb.c main.c
 tests/     ppu_test.c rom_test.c
-roms/      put test/game ROMs here (not included)
+roms/      put test/game ROMs here (not included, aquire legally ;\))
 ```
 
 ## Testing
