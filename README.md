@@ -89,7 +89,7 @@ MBC3+RTC carts also write a `.rtc` sidecar.
 include/   public headers
 src/       cpu.c mmu.c ppu.c timer.c joypad.c apu.c cart.c gb.c main.c
 tests/     ppu_test.c rom_test.c
-roms/      put test/game ROMs here (not included, aquire legally ;\))
+roms/      put test/game ROMs here (not included, aquire legally ;) )
 ```
 
 ## Testing
