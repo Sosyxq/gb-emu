@@ -1,0 +1,13 @@
+# ROMs and save files (copyrighted — never commit)
+roms/
+*.gb
+*.gbc
+*.sav
+*.rtc
+
+# Build artifacts
+build/
+gb-emu
+
+# macOS
+.DS_Store
